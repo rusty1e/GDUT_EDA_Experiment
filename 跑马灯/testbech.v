@@ -2,15 +2,15 @@
  
 module tb_horse_race_lamp;
 
-    // Inputs
-    reg [1:0] S;        // ??????
-    reg clk;             // ????
-    reg reset;           // ????
 
-    // Outputs
-    wire [7:0] Y;       // LED???
+    reg [1:0] S;   
+    reg clk;  
+    reg reset;      
 
-    // ?????????UUT?
+  
+    wire [7:0] Y;  
+
+ 
     horse_race_lamp uut (
         .S(S),
         .clk(clk),
@@ -18,39 +18,38 @@ module tb_horse_race_lamp;
         .Y(Y)
     );
 
-    // ??????
     initial begin
-        clk = 0;   // ??????0
-        forever #5 clk = ~clk;  // ?5?????????
+        clk = 0;  
+        forever #5 clk = ~clk; 
     end
 
-    // ????????
+ 
     initial begin
         $display("Running testbench");
 
-        // ?????
-        reset = 1;  // ?????????
-        S = 2'b00;   // ?????00
-        #10 reset = 0;  // ????
-        #400;         // ??400????
-
-        // ???????
+        
         reset = 1; 
-        #5 reset = 0;  // ??????5????
-        S = 2'b01;     // ?????01
-        #200;          // ??200????
+        S = 2'b00;  
+        #10 reset = 0;  
+        #400;        
+
+ 
+        reset = 1; 
+        #5 reset = 0;  
+        S = 2'b01;     
+        #200;        
 
         reset = 1;
         #5 reset = 0;
-        S = 2'b10;     // ?????10
-        #200;          // ??200????
+        S = 2'b10;  
+        #200;          
 
         reset = 1;
         #5 reset = 0;
-        S = 2'b11;     // ?????11
-        #100;          // ??100????
+        S = 2'b11;   
+        #100;         
 
-        $stop;         // ????
+        $stop;     
     end
 
 endmodule

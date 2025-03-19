@@ -1,4 +1,4 @@
-# GDUTEDAexperiment
+# GDUT EDA Experiment
 GDUT Digital Logic Experiment
 
 EDA
